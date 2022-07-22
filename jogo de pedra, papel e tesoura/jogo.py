@@ -6,8 +6,8 @@ def linha(quant):
 
 def exibir(rebo, voce):
     linha(20)
-    print(f"Eu escolhi {rebo}")
-    print(f"Você escolheu {voce}")
+    print(f"A minha escolha {rebo}")
+    print(f"A sua escolheu {voce}")
     linha(20)
 
 
@@ -19,7 +19,7 @@ g = p = e = 0
 for i in range(1, 6):
     print(f"{i}° Rodada:")
     escolha = choice(escolhas)
-    res = str(input("Qual você ira jogar: ")).lower()
+    res = str(input("Qual você vai jogar: ")).lower()
     if res == "pedra" and escolha == "tesoura" or res == "papel" and escolha == "pedra" or res == "tesoura" and escolha == "papel":
         exibir(escolha, res)
         print(f"Você ganhou a {i}° rodada.")
@@ -32,14 +32,15 @@ for i in range(1, 6):
         p += 1
     elif res == escolha:
         exibir(escolha, res)
-        print(f"Acabou havendo um empante na {i}° rodada.")
+        print(f"Ocorreu um empante na {i}° rodada.")
         linha(20)
         e += 1
 
 print("Agora vamos ver quem ganhou o jogo:")
+print(f"Eu ganhei {p} rodada(s).")
 print(f"Você ganhou {g} rodada(s).")
-print(f"Você perdeu {p} rodada(s).")
-print(f"acabou tendo {e} rodada(s) empatadas.")
+if e > 0:
+    print(f"Ocorreu {e} empate(s).")
 if g > p and g > e:
     print("Você ganhou!")
 elif p > g and p > e:
